@@ -3,7 +3,11 @@ import dotenv from 'dotenv';
 import knex from 'knex';
 import knexConfig from './knexfile.js'; // Assuming you have a knexfile for configurations
 
-dotenv.config();
+dotenv.config({
+    path: './.env'
+});
+
+
 const port = process.env.PORT || 5000;
 
 // Run migrations
