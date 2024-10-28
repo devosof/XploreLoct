@@ -1,4 +1,4 @@
-import Event from '../models/Event.js';
+import Event from '../models/event.models.js';
 import ApiError from '../utils/ApiError.js';
 import AsyncHandler from '../utils/AsyncHandler.js';
 import cloudinary from '../config/cloudinary.js';

@@ -1,7 +1,13 @@
 import express from 'express';
 import { registerUser, loginUser } from '../controllers/userController.js';
+import Pool from '../config/db.js'; // Ensure correct path
+
 
 const router = express.Router();
+
+
+
+
 
 router.post('/register', registerUser);
 router.post('/login', loginUser);

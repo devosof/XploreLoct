@@ -1,6 +1,6 @@
 import express from 'express';
 import { createEvent, getEvents, commentOnEvent } from '../controllers/eventController.js';
-import { authenticate } from '../middlewares/authMiddleware.js';
+import { authenticate } from '../middlewares/auth.middleware.js';
 import multer from 'multer';
 
 const router = express.Router();
