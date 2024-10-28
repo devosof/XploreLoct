@@ -1,0 +1,23 @@
+{
+  "name": "xploreloct",
+  "version": "1.0.0",
+  "description": "a backend api for an event location finding app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devosof/XploreLoct.git"
+  },
+  "keywords": [
+    "mapApi",
+    "backend"
+  ],
+  "author": "hassan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devosof/XploreLoct/issues"
+  },
+  "homepage": "https://github.com/devosof/XploreLoct#readme"
+}
