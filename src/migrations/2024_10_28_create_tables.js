@@ -1,18 +1,45 @@
-import pool from '../config/db.js';
+import knex from 'knex';
 
-const User = {
-    async createUser(username, password) {
-        const result = await pool.query(
-            'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *',
-            [username, password]
-        );
-        return result.rows[0];
-    },
-
-    async findUserByUsername(username) {
-        const result = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
-        return result.rows[0];
-    },
+exports.up = async (knex) => {
+    await knex.schema
+        .createTable('users', (table) => {
+            table.increments('id').primary();
+            table.string('username').notNullable().unique();
+            table.string('email').notNullable().unique();
+            table.string('password').notNullable();
+            table.timestamps(true, true);
+        })
+        .createTable('events', (table) => {
+            table.increments('id').primary();
+            table.string('name').notNullable();
+            table.text('description').notNullable();
+            table.string('country').notNullable();
+            table.string('city').notNullable();
+            table.string('district').notNullable();
+            table.string('town').notNullable();
+            table.string('place').notNullable();
+            table.float('latitude').notNullable();
+            table.float('longitude').notNullable();
+            table.string('google_maps_link').notNullable();
+            table.integer('capacity').notNullable();
+            table.string('gender_allowance').notNullable();
+            table.time('time').notNullable();
+            table.integer('duration').notNullable();
+            table.integer('user_id').references('id').inTable('users').onDelete('CASCADE');
+            table.timestamps(true, true);
+        })
+        .createTable('comments', (table) => {
+            table.increments('id').primary();
+            table.integer('event_id').references('id').inTable('events').onDelete('CASCADE');
+            table.integer('user_id').references('id').inTable('users').onDelete('CASCADE');
+            table.text('comment').notNullable();
+            table.timestamps(true, true);
+        });
 };
 
-export default User;
+exports.down = async (knex) => {
+    await knex.schema
+        .dropTableIfExists('comments')
+        .dropTableIfExists('events')
+        .dropTableIfExists('users');
+};
