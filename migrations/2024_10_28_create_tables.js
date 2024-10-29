@@ -57,3 +57,18 @@ export async function down(knex) {
     await knex.schema.dropTableIfExists('events');
     await knex.schema.dropTableIfExists('users');
 }
+
+
+
+export async function up(knex) {
+    await knex.schema.table('events', (table) => {
+        table.string('image_url').nullable(); // Add the image_url column
+    });
+}
+
+export async function down(knex) {
+    await knex.schema.table('events', (table) => {
+        table.dropColumn('image_url'); // Rollback by removing the column
+    });
+}
+
