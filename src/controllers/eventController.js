@@ -28,11 +28,11 @@
 // });
 
 
-import Event from '../models/Event.js';
+import Event from '../models/event.models.js';
 import { uploadOnCloudinary } from '../utils/Cloudinary.js';
-import { ApiError } from '../utils/ApiError.js';
-import { ApiResponse } from '../utils/ApiResponse.js';
-import { asyncHandler } from '../utils/AsyncHandler.js';
+import ApiError  from '../utils/ApiError.js';
+import  ApiResponse from '../utils/ApiResponse.js';
+import  asyncHandler  from '../utils/AsyncHandler.js';
 
 // Create Event
 export const createEvent = asyncHandler(async (req, res) => {
@@ -58,7 +58,7 @@ export const getEventById = asyncHandler(async (req, res) => {
 });
 
 // Add Comment to Event
-export const addCommentToEvent = asyncHandler(async (req, res) => {
+export const commentOnEvent = asyncHandler(async (req, res) => {
     const { id: eventId } = req.params;
     const { user_id, comment } = req.body;
 

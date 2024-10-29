@@ -23,10 +23,10 @@ const Event = {
         Object.keys(filters).forEach((key, idx) => {
           whereClauses.push(`${key} = $${idx + 1}`);
           params.push(filters[key]);
+          query += ` WHERE ${whereClauses.join(' AND ')}`;
         });
-        query += ` WHERE ${whereClauses.join(' AND ')}`;
       }
-  
+      console.log(query)
       const result = await pool.query(query, params);
       return result.rows;
     },

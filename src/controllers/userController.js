@@ -29,11 +29,11 @@
 // });
 
 
-import User from '../models/User.js';
+import User from '../models/user.models.js';
 import bcrypt from 'bcrypt';
-import { ApiError } from '../utils/ApiError.js';
-import { ApiResponse } from '../utils/ApiResponse.js';
-import { asyncHandler } from '../utils/AsyncHandler.js';
+import  ApiError  from '../utils/ApiError.js';
+import  ApiResponse from '../utils/ApiResponse.js';
+import  asyncHandler  from '../utils/AsyncHandler.js';
 import generateToken from '../utils/generateToken.js';
 
 // Register User
