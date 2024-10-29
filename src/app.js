@@ -5,7 +5,9 @@ import cors from "cors";
 
 // cors configuration (production level configuration)
 
-dotenv.config();
+dotenv.config({
+    path: './.env'
+});
 
 const app = express();
 
